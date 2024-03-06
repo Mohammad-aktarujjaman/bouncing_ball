@@ -1,0 +1,81 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+:root{
+    --clr: #0fa;
+}
+.container{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #222;
+}
+.container .circle , .circle2{
+    position: absolute;
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    border: 60px solid transparent;
+    border-right: 60px solid #fff3;
+    border-bottom: 60px solid #fff3;
+    transform: rotate(60deg);
+    animation: animate 1.4s linear infinite;
+}
+@keyframes animate{
+    0%,100%{
+        transform: rotate(20deg);
+    }
+    50%{
+        transform: rotate(70deg);
+    }
+}
+.container .circle::after{
+    content: "";
+    height: 30px;
+    width: 60px;
+    border-radius: 50%;
+    position: absolute;
+    background: var(--clr);
+    transform: rotate(-45deg);
+    top: 160px;
+    left: -23px;
+    box-shadow: inset 0 0 20px #0008;
+}
+.container .circle::before{
+    content: "";
+    height: 30px;
+    width: 60px;
+    border-radius: 50%;
+    position: absolute;
+    background: var(--clr);
+    transform: rotate(-45deg);
+    top: -12px;
+    right: -23px;
+    box-shadow: inset 0 0 20px #0008;
+}
+.circle2::before{
+    content: '';
+    height: 50px;
+    width: 50px;
+    background: var(--clr);
+    border-radius: 50%;
+    position: absolute;
+    transform: translateY(135px) translateX(-30px);
+    box-shadow: inset 0 0 20px #0008;
+}
+.circle2{
+    transform: rotate(70deg);
+    border-color: transparent;
+    animation: animate2 1.4s linear infinite;
+}
+@keyframes animate2{
+    0%,100%{
+        transform: rotate(180deg);
+    }
+    50%{
+        transform: rotate(70deg);
+    }
+}
